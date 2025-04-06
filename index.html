@@ -29,7 +29,7 @@
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#evento">El Evento</a></li>
-                    <li><a href="#informacion">Nosotros</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#rsvp">RSVP</a></li>
                     <li><a href="#regalos">Participa</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -114,7 +114,7 @@
           </section>
 
         <!-- Sección Nuestro Lema -->
-        <section class="our-story">
+        <section id="nosotros" class="our-story">
             <!-- Franja Superior -->
             <div class="story-header">
                 <!-- Columna izquierda: Título y texto -->
@@ -143,18 +143,22 @@
         <section id="rsvp" class="rsvp">
             <div class="container">
                 <h2 class="section-title">Confirma tu Asistencia</h2>
-                <p class="rsvp-info">Por favor confirma tu asistencia antes del 15 de mayo de 2025</p>
+                <p class="rsvp-info">Por favor confirma tu asistencia antes del <strong>1 de febrero de 2026</strong></p>
                 
+                <!-- Nombre -->
                 <form id="rsvp-form" class="rsvp-form" method="POST" action="https://formspree.io/f/mblgagvk">
                     <div class="form-group">
                         <input type="text" id="name" name="name" required placeholder="Nombre completo">
                     </div>
+                    <!-- Email -->
                     <div class="form-group">
                         <input type="email" id="email" name="email" required placeholder="Email">
                     </div>
+                    <!-- Telefono -->
                     <div class="form-group">
                         <input type="tel" id="phone" name="phone" required placeholder="Teléfono">
                     </div>
+                    <!-- Asistencia -->
                     <div class="form-group radio-group">
                         <p>¿Asistirás a nuestra boda?</p>
                         <div class="radio-options">
@@ -180,7 +184,7 @@
                     <div id="guest-details-container"></div>
 
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="¿Algún mensaje para los novios? ¿Alergias, vegetarian@?"></textarea>
+                        <textarea id="message" name="message" placeholder="¿Algún mensaje para los novios? ¿Intolerancias, Vegetarian@, Vegan@?"></textarea>
                     </div>
                 
                     <!-- Campo oculto para redirigir tras enviar -->
@@ -221,7 +225,7 @@
                         </div>
                         <h3>Teléfono</h3>
                         <p>Clara: +34 666 084 748</p>
-                        <p>Adrian: +34 637 019 377</p>
+                        <p>Adrián: +34 637 019 377</p>
                     </div>
                     <div class="contact-method">
                         <div class="contact-icon">
@@ -240,7 +244,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">C&A</div>
-                <p>Clara y Adrian · 11.04.2026</p>
+                <p>Clara y Adrián  11·04·2026</p>
                 <p class="copyright">© 2026 - Con amor para nuestros invitados</p>
             </div>
         </div>

@@ -109,14 +109,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="guest-options">
                     <div class="guest-question-pair">
                         <div class="form-group">
-                            <label>¿Tiene alergias alimentarias?</label>
+                            <label>¿Tienes alergias alimentarias?</label>
                             <div class="radio-options">
                                 <label><input type="radio" name="guest_allergy_${i}" value="sí" required> Sí</label>
                                 <label><input type="radio" name="guest_allergy_${i}" value="no" required> No</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>¿Necesita autobús?</label>
+                            <label>¿Necesitas autobús?</label>
                             <div class="radio-options">
                                 <label><input type="radio" name="guest_bus_${i}" value="sí" required> Sí</label>
                                 <label><input type="radio" name="guest_bus_${i}" value="no" required> No</label>
@@ -188,11 +188,31 @@ document.addEventListener('DOMContentLoaded', function() {
     rsvpForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Aquí normalmente enviarías los datos a un servidor
-        // Por ahora, solo mostraremos un mensaje de éxito
-        alert('¡Gracias por confirmar tu asistencia!');
-        rsvpForm.reset();
-    });
+        const formData = new FormData(rsvpForm);
+
+        fetch(rsvpForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('¡Gracias por confirmar tu asistencia! Te esperamos con mucha ilusión');
+                rsvpForm.reset();
+                // Limpiar campos dinámicos
+                document.getElementById("guest-details-container").innerHTML = '';
+            } else {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Hubo un error al enviar el formulario.');
+                });
+            }
+        })
+        .catch(error => {
+            alert('Error al enviar el formulario: ' + error.message);
+        });
+});
     
     // Efecto de animación al hacer scroll para los elementos
     function revealOnScroll() {
